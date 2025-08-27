@@ -30,7 +30,7 @@ export function LogDisplay({ logs, isGenerating }: LogDisplayProps) {
     return (
       <div className="text-center py-12 text-muted-foreground">
         <div className="text-4xl mb-2">📋</div>
-        <p>日志将在这里显示...</p>
+        <p>Logs will appear here...</p>
       </div>
     )
   }
@@ -68,7 +68,7 @@ export function LogDisplay({ logs, isGenerating }: LogDisplayProps) {
                 PROCESSING
               </Badge>
               <p className="text-sm text-muted-foreground mt-1">
-                正在处理中...
+                Processing...
               </p>
             </div>
           </div>
