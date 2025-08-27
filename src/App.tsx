@@ -43,12 +43,12 @@ function App() {
   
   const { logs, isGenerating, result, startGeneration, stopGeneration, clearLogs } = useSSEGeneration({
     onComplete: (result) => {
-      toast.success('代码生成完成！🎉', {
-        description: `成功生成 ${Object.keys(result.files).length} 个文件`
+      toast.success('Code generation completed！🎉', {
+        description: `Successfully generated ${Object.keys(result.files).length} files`
       })
     },
     onError: (error) => {
-      toast.error('生成失败', {
+      toast.error('Generation failed', {
         description: error
       })
     }
@@ -58,14 +58,14 @@ function App() {
     e.preventDefault()
     
     if (!url.trim()) {
-      toast.error('请输入SDK文档URL 🔗')
+      toast.error('Please enter SDK documentation URL 🔗')
       return
     }
 
     try {
       new URL(url)
     } catch {
-      toast.error('请输入有效的URL格式 ❌')
+      toast.error('Please enter a valid URL format ❌')
       return
     }
 
@@ -84,7 +84,7 @@ function App() {
 
   const handleExampleClick = (exampleUrl: string) => {
     setUrl(exampleUrl)
-    toast.info('已填入示例URL 📝')
+    toast.info('Example URL filled in 📝')
   }
 
   return (
@@ -98,10 +98,10 @@ function App() {
             <span>🤖</span>
           </h1>
           <p className="text-xl text-muted-foreground">
-            SDK文档到MCP代码生成代理
+              SDK Documentation to MCP Code Generation Agent
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            粘贴SDK文档URL，AI将自动解析并生成MCP协议代码
+              Paste SDK documentation URL, AI will automatically parse and generate MCP protocol code
           </p>
         </div>
 
@@ -110,10 +110,10 @@ function App() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link size={20} />
-              输入SDK文档URL
+              Enter SDK Documentation URL
             </CardTitle>
             <CardDescription>
-              支持HTML和Markdown格式的技术文档
+              Supports HTML and Markdown format technical documentation
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -135,7 +135,7 @@ function App() {
                     className="gap-2 px-6"
                   >
                     <Stop size={16} />
-                    停止 ⏹️
+                    Stop ⏹️
                   </Button>
                 ) : (
                   <Button 
@@ -144,7 +144,7 @@ function App() {
                     className="gap-2 px-6"
                   >
                     <Play size={16} />
-                    生成代码 🚀
+                    Generate Code 🚀
                   </Button>
                 )}
               </div>
@@ -152,7 +152,7 @@ function App() {
               {url && !isValidUrl(url) && (
                 <p className="text-sm text-destructive flex items-center gap-1">
                   <span>❌</span>
-                  请输入有效的URL格式
+                  Please enter a valid URL format
                 </p>
               )}
             </form>
@@ -162,7 +162,7 @@ function App() {
               <div className="space-y-3 pt-4 border-t border-border">
                 <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
                   <Clock size={16} />
-                  示例文档
+                  Example Documentation
                 </div>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {exampleUrls.map((example) => (
@@ -193,10 +193,10 @@ function App() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <span className="text-xl">📋</span>
-              实时日志
+              Real-time Logs
             </CardTitle>
             <CardDescription>
-              查看AI代理的工作过程
+              View the AI agent's working process
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -210,9 +210,9 @@ function App() {
         {/* Footer */}
         <div className="text-center mt-12 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground">
-            由AI驱动 • 专注于SDK文档到MCP代码的自动转换 • 
+            Powered by AI • Focused on automatic conversion from SDK documentation to MCP code •
             <span className="mx-1">🤖</span>
-            让开发更高效
+            Making development more efficient
           </p>
         </div>
       </div>
